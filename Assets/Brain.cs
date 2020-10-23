@@ -15,14 +15,17 @@ public class Brain : MonoBehaviour
     //bool seeObstacle = false;
     //bool seeDeath = false;
     bool alive = true;
+    bool grounded = true;
     Rigidbody2D rb;
+    Animator anim;
 
     public void Init()  //initialise DNA
     {
-        dna = new DNA(DNALength, 3); //Number of reactions, here: 0 = moveForward, 1 = don'tJump, 2 = Jump
+        dna = new DNA(DNALength, 5); //Number of reactions, here: 0 = no Movement, 1 = moveForward, 2 = don'tJump, 3 = Jump
         timeAlive = 0;
         alive = true;
         rb = this.GetComponent<Rigidbody2D>();
+        anim = this.GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -34,6 +37,10 @@ public class Brain : MonoBehaviour
         if (collision.gameObject.tag == "death")
         {
             alive = false;
+        }
+        if (collision.gameObject.tag == "ground")
+        {
+            grounded = true;
         }
     }
 
@@ -60,7 +67,7 @@ public class Brain : MonoBehaviour
             seeGround = false; //also seeObstacle = false //also seeDeath = false;
         timeAlive = PopulationManager.elapsed;
 
-        float upforce = 0;
+        bool jump = false;
         float forwardForce = 0;
 
         //if (seeObstacle)
@@ -69,20 +76,54 @@ public class Brain : MonoBehaviour
         //    upforce = dna.GetGene(1);
         if (seeGround)
         {
-            if (dna.GetGene(0) == 0) forwardForce = 10;
-            else if (dna.GetGene(0) == 1) upforce = 0;
-            else if (dna.GetGene(0) == 2) upforce = 1;
+            if (dna.GetGene(0) == 0) forwardForce = 0;
+            else if (dna.GetGene(0) == 1) forwardForce = 1;
+            else if (dna.GetGene(0) == 2) jump = false;
+            else if (dna.GetGene(0) == 3) jump = true;
         }
         else
         {
-            if (dna.GetGene(1) == 0) forwardForce = 10;
-            else if (dna.GetGene(1) == 1) upforce = 0;
-            else if (dna.GetGene(1) == 2) upforce = 1;
+            if (dna.GetGene(1) == 0) forwardForce = 0;
+            else if (dna.GetGene(1) == 1) forwardForce = 1;
+            else if (dna.GetGene(1) == 2) jump = false;
+            else if (dna.GetGene(1) == 3) jump = true;
         }
 
-        rb.AddForce(this.transform.right * forwardForce);
-        //rb.AddForce(this.transform.up * upforce);
-        rb.AddForce(this.transform.up * upforce, ForceMode2D.Impulse); //Jumping needs groundin!
+        rb.AddForce(this.transform.right * forwardForce * 100);
+
+        //Anim
+        if(rb.velocity.y > 0)
+        {
+            anim.SetBool("jumping", true);
+            anim.SetBool("running", false);
+            anim.SetBool("falling", false);
+        }
+        else if(rb.velocity.y < 0)
+        {
+            anim.SetBool("falling", true);
+            anim.SetBool("running", false);
+            anim.SetBool("jumping", false);
+        }
+        else if (rb.velocity.x != 0)
+        {
+            anim.SetBool("running", true);
+            anim.SetBool("falling", false);
+            anim.SetBool("jumping", false);
+        }
+        else
+        {
+            anim.SetBool("running", false);
+            anim.SetBool("falling", false);
+            anim.SetBool("jumping", false);
+        }
+
+        //Jumping
+        if (grounded && jump)
+        {
+            grounded = false;
+            rb.AddForce(this.transform.up * 100, ForceMode2D.Impulse);
+        }
+
 
         distanceTravelled = Vector2.Distance(this.transform.position, PopulationManager.startPos.position);
     }
