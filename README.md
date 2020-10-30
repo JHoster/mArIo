@@ -1,6 +1,10 @@
 # mArIo
 Game with genetic algorithm bots
 
+1. UML
+
+![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)
+
 To do:
 1. UML at least 3 good diagrams
 2. DDD If your domain is too small, invent other domains around and document these domains (as if you have 5 Mio € from Edlich-Investment!) Develop a clear strategic design with mappings/relationships
