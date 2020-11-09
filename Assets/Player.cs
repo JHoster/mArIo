@@ -6,6 +6,13 @@ public class Player : MonoBehaviour
 {
     bool alive = true;
     bool grounded = true;
+    public float speed;
+    public float jumpForce;
+    private float moveInput;
+    private bool jumped;
+    private float jumpTimeCounter;
+    public float jumpTime;
+    private bool isJumping;
     Rigidbody2D rb;
     Animator anim;
 
@@ -19,16 +26,40 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Bot-similar control:
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (grounded)
+        //    {
+        //        grounded = false;
+        //        rb.AddForce(this.transform.up * 100, ForceMode2D.Impulse);
+        //    }
+        //}
+        //if(Input.GetKey(KeyCode.D))
+        //    rb.AddForce(this.transform.right * 100);
+
+        //Movement
+        if (Input.GetKeyDown("space") && grounded)
         {
-            if (grounded)
-            {
-                grounded = false;
-                rb.AddForce(this.transform.up * 100, ForceMode2D.Impulse);
-            }
+            grounded = false;
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            rb.velocity = Vector2.up * jumpForce;
         }
-        if(Input.GetKey(KeyCode.D))
-            rb.AddForce(this.transform.right * 100);
+        if (Input.GetKey("space") && isJumping)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+                isJumping = false;
+        }
+        if (Input.GetKeyUp("space"))
+        {
+            isJumping = false;
+        }
 
         //Anim
         if (rb.velocity.y > 0)
@@ -45,6 +76,10 @@ public class Player : MonoBehaviour
         }
         else if (rb.velocity.x != 0)
         {
+            if (rb.velocity.x > 0)
+                transform.rotation = Quaternion.identity;
+            if (rb.velocity.x < 0)
+                transform.rotation = Quaternion.Euler(0,180,0);
             anim.SetBool("running", true);
             anim.SetBool("falling", false);
             anim.SetBool("jumping", false);
@@ -71,6 +106,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        moveInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
 }

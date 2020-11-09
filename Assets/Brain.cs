@@ -19,6 +19,13 @@ public class Brain : MonoBehaviour
     Rigidbody2D rb;
     Animator anim;
 
+    public float speed;
+    public float jumpForce;
+    private bool jumped;
+    private float jumpTimeCounter;
+    public float jumpTime;
+    private bool isJumping;
+
     public void Init()  //initialise DNA
     {
         dna = new DNA(DNALength, 5); //Number of reactions, here: 0 = no Movement, 1 = moveForward, 2 = don'tJump, 3 = Jump
@@ -89,8 +96,6 @@ public class Brain : MonoBehaviour
             else if (dna.GetGene(1) == 3) jump = true;
         }
 
-        rb.AddForce(this.transform.right * forwardForce * 100);
-
         //Anim
         if(rb.velocity.y > 0)
         {
@@ -118,12 +123,36 @@ public class Brain : MonoBehaviour
         }
 
         //Jumping
-        if (grounded && jump)
+        //if (grounded && jump)
+        //{
+        //    grounded = false;
+        //    rb.AddForce(this.transform.up * jumpForce, ForceMode2D.Impulse);
+        //}
+
+        if (jump && grounded)
         {
             grounded = false;
-            rb.AddForce(this.transform.up * 100, ForceMode2D.Impulse);
+            isJumping = true;
+            jumpTimeCounter = jumpTime;
+            rb.velocity = Vector2.up * jumpForce;
+        }
+        if (jump && isJumping)
+        {
+            if (jumpTimeCounter > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+                isJumping = false;
+        }
+        if (!jump)
+        {
+            isJumping = false;
         }
 
+        //rb.AddForce(this.transform.right * forwardForce * speed);
+        rb.velocity = new Vector2(forwardForce * speed, rb.velocity.y);
 
         distanceTravelled = Vector2.Distance(this.transform.position, PopulationManager.startPos.position);
     }

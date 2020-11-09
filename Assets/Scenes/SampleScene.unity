@@ -442,6 +442,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -457,6 +458,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b011355b15718d54280e86f197780d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 953006859}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -484,7 +498,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -508,7 +522,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -853,6 +867,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3839835759563603673, guid: c08391c0f08edb04cb3465ff482a748e,
+        type: 3}
+      propertyPath: jumpTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4142205656402316689, guid: c08391c0f08edb04cb3465ff482a748e,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -898,6 +917,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566258525306225621, guid: c08391c0f08edb04cb3465ff482a748e,
+        type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4566258525306225621, guid: c08391c0f08edb04cb3465ff482a748e,
+        type: 3}
+      propertyPath: jumpTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6978975451536255367, guid: c08391c0f08edb04cb3465ff482a748e,
         type: 3}
@@ -1465,6 +1494,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921451680}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &953006859 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3039721838541423411, guid: c08391c0f08edb04cb3465ff482a748e,
+    type: 3}
+  m_PrefabInstance: {fileID: 607124297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1406293072
 GameObject:
   m_ObjectHideFlags: 0
