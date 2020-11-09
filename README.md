@@ -5,6 +5,11 @@ Game with genetic algorithm bots
 
 ![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)
 
+8. IDE
+Nice Visual Studio shortcuts:
+Ctrl+D Duplicate a line
+Ctrl+K, ctrl+D Format Document
+
 To do:
 1. UML at least 3 good diagrams
 2. DDD If your domain is too small, invent other domains around and document these domains (as if you have 5 Mio € from Edlich-Investment!) Develop a clear strategic design with mappings/relationships
@@ -21,3 +26,18 @@ To do:
 - the use of higher-order functions
 - functions as parameters and return values
 - use closures / anonymous functions
+
+Working with machine learning algorithm always leads to funny stories.
+Here are some of them:
+
+Why aren't they moving?
+In the first iteration some bots moved forward and jumped, but in the following iterations more and more of them would just stand there or jump on the spot, even though the fitness-function checked which bot travelled the most distance.
+Turns out, the ones that moved forward fell in the pits and died.
+Dead bots can't give their DNA to the next population!
+So the bots that did nothing except jumping were the fittest, because at least they survived!
+
+Double Jump
+Bots did double jumps, even though I gave them the same controls as the player.
+Was wondered for a while how they are doing it.
+Turns out, the player could do it too, but I never tried!
+Learned a nice trick from the bots!
