@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Brain : MonoBehaviour
 {
-    int DNALength = 2; //decision when seeing: nothing, ground //, death, obstacle
+    int DNALength = 3; //decision when seeing: nothing, ground, death //, obstacle
     public float timeAlive;
     public float distanceTravelled;
     public int crash;
@@ -13,7 +13,7 @@ public class Brain : MonoBehaviour
     public GameObject eyes;
     bool seeGround = true;
     //bool seeObstacle = false;
-    //bool seeDeath = false;
+    bool seeDeath = false;
     bool alive = true;
     bool grounded = true;
     Rigidbody2D rb;
@@ -26,9 +26,11 @@ public class Brain : MonoBehaviour
     public float jumpTime;
     private bool isJumping;
 
+    public LayerMask ignoreMask;
+
     public void Init()  //initialise DNA
     {
-        dna = new DNA(DNALength, 5); //Number of reactions, here: 0 = no Movement, 1 = moveForward, 2 = don'tJump, 3 = Jump
+        dna = new DNA(DNALength, 4); //Number of reactions, here: 0 = no Movement, 1 = moveForward, 2 = don'tJump, 3 = Jump
         timeAlive = 0;
         alive = true;
         rb = this.GetComponent<Rigidbody2D>();
@@ -53,11 +55,18 @@ public class Brain : MonoBehaviour
 
     private void Update()
     {
+        if (alive)
+            distanceTravelled = Vector2.Distance(this.transform.position, PopulationManager.startPos.position);
+        else
+            distanceTravelled = 0;
+
         if (!alive) return;
+        timeAlive = PopulationManager.elapsed;
+
         seeGround = false;
         //seeObstacle = false;
-        //seeDeath = false;
-        RaycastHit2D hit = Physics2D.Raycast(eyes.transform.position, eyes.transform.forward, 10.0f);
+        seeDeath = false;
+        RaycastHit2D hit = Physics2D.Raycast(eyes.transform.position, eyes.transform.forward, 10.0f, ~ignoreMask);
 
         Debug.DrawRay(eyes.transform.position, eyes.transform.forward * 10.0f, Color.red);
 
@@ -65,28 +74,32 @@ public class Brain : MonoBehaviour
         {
             //if (hit.collider.gameObject.tag == "obstacle")
             //    seeObstacle = true;
-            //if (hit.collider.gameObject.tag == "death")
-            //    seeDeath = true;
+            if (hit.collider.gameObject.tag == "death")
+                seeDeath = true;
             if (hit.collider.gameObject.tag == "ground")
                 seeGround = true;
         }
         else
             seeGround = false; //also seeObstacle = false //also seeDeath = false;
-        timeAlive = PopulationManager.elapsed;
 
         bool jump = false;
         float forwardForce = 0;
 
         //if (seeObstacle)
         //    upforce = dna.GetGene(0);
-        //if (seeDeath)
-        //    upforce = dna.GetGene(1);
         if (seeGround)
         {
             if (dna.GetGene(0) == 0) forwardForce = 0;
             else if (dna.GetGene(0) == 1) forwardForce = 1;
             else if (dna.GetGene(0) == 2) jump = false;
             else if (dna.GetGene(0) == 3) jump = true;
+        }
+        else if (seeDeath)
+        {
+            if (dna.GetGene(2) == 0) forwardForce = 0;
+            else if (dna.GetGene(2) == 1) forwardForce = 1;
+            else if (dna.GetGene(2) == 2) jump = false;
+            else if (dna.GetGene(2) == 3) jump = true;
         }
         else
         {
@@ -111,6 +124,10 @@ public class Brain : MonoBehaviour
         }
         else if (rb.velocity.x != 0)
         {
+            if (rb.velocity.x > 0)
+                transform.rotation = Quaternion.identity;
+            if (rb.velocity.x < 0)
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             anim.SetBool("running", true);
             anim.SetBool("falling", false);
             anim.SetBool("jumping", false);
@@ -153,7 +170,5 @@ public class Brain : MonoBehaviour
 
         //rb.AddForce(this.transform.right * forwardForce * speed);
         rb.velocity = new Vector2(forwardForce * speed, rb.velocity.y);
-
-        distanceTravelled = Vector2.Distance(this.transform.position, PopulationManager.startPos.position);
     }
 }
