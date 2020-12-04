@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Brain : MonoBehaviour
 {
-    int DNALength = 3; //decision when seeing: nothing, ground, death //, obstacle
+    int DNALength = 4; //decision when seeing: nothing, ground, death, obstacle
     public float timeAlive;
     public float distanceTravelled;
     public int crash;
     public DNA dna;
     public GameObject eyes;
     bool seeGround = true;
-    //bool seeObstacle = false;
+    bool seeObstacle = false;
     bool seeDeath = false;
     bool alive = true;
     bool grounded = true;
@@ -30,7 +30,7 @@ public class Brain : MonoBehaviour
 
     public void Init()  //initialise DNA
     {
-        dna = new DNA(DNALength, 4); //Number of reactions, here: 0 = no Movement, 1 = moveForward, 2 = don'tJump, 3 = Jump
+        dna = new DNA(DNALength, 2); //Number of reactions: 2 = don'tJump, 3 = Jump //0 = no Movement, 1 = moveForward, 
         timeAlive = 0;
         alive = true;
         rb = this.GetComponent<Rigidbody2D>();
@@ -39,7 +39,7 @@ public class Brain : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "obstacle")
+        if (collision.gameObject.tag == "obstacle")
         {
             crash++;
         }
@@ -51,20 +51,37 @@ public class Brain : MonoBehaviour
         {
             grounded = true;
         }
+        if (collision.gameObject.tag == "goal")
+        {
+            Debug.Log("BOT WON!!!");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ground")
+            grounded = false;
     }
 
     private void Update()
     {
+        if (crash > Player.crashMax)
+            alive = false;
+
         if (alive)
             distanceTravelled = Vector2.Distance(this.transform.position, PopulationManager.startPos.position);
         else
+        {
             distanceTravelled = 0;
+            //GetComponent<CapsuleCollider2D>().enabled = false;
+            anim.SetBool("dead", true);
+        }
 
         if (!alive) return;
         timeAlive = PopulationManager.elapsed;
 
         seeGround = false;
-        //seeObstacle = false;
+        seeObstacle = false;
         seeDeath = false;
         RaycastHit2D hit = Physics2D.Raycast(eyes.transform.position, eyes.transform.forward, 10.0f, ~ignoreMask);
 
@@ -72,51 +89,60 @@ public class Brain : MonoBehaviour
 
         if (hit.collider != null)
         {
-            //if (hit.collider.gameObject.tag == "obstacle")
-            //    seeObstacle = true;
+            if (hit.collider.gameObject.tag == "obstacle")
+                seeObstacle = true;
             if (hit.collider.gameObject.tag == "death")
                 seeDeath = true;
             if (hit.collider.gameObject.tag == "ground")
                 seeGround = true;
         }
         else
-            seeGround = false; //also seeObstacle = false //also seeDeath = false;
+        {
+            seeGround = false;
+            seeObstacle = false;
+            seeDeath = false;
+        }
 
         bool jump = false;
-        float forwardForce = 0;
+        float forwardForce = 1;
 
-        //if (seeObstacle)
-        //    upforce = dna.GetGene(0);
         if (seeGround)
         {
             if (dna.GetGene(0) == 0) forwardForce = 0;
             else if (dna.GetGene(0) == 1) forwardForce = 1;
-            else if (dna.GetGene(0) == 2) jump = false;
-            else if (dna.GetGene(0) == 3) jump = true;
+            else if (dna.GetGene(0) == 0) jump = false;
+            else if (dna.GetGene(0) == 1) jump = true;
+        }
+        else if (seeObstacle)
+        {
+            if (dna.GetGene(1) == 0) forwardForce = 0;
+            else if (dna.GetGene(1) == 1) forwardForce = 1;
+            else if (dna.GetGene(1) == 0) jump = false;
+            else if (dna.GetGene(1) == 1) jump = true;
         }
         else if (seeDeath)
         {
             if (dna.GetGene(2) == 0) forwardForce = 0;
-            else if (dna.GetGene(2) == 1) forwardForce = 1;
-            else if (dna.GetGene(2) == 2) jump = false;
-            else if (dna.GetGene(2) == 3) jump = true;
+            else if(dna.GetGene(2) == 1) forwardForce = 1;
+            else if(dna.GetGene(2) == 0) jump = false;
+            else if (dna.GetGene(2) == 1) jump = true;
         }
         else
         {
-            if (dna.GetGene(1) == 0) forwardForce = 0;
-            else if (dna.GetGene(1) == 1) forwardForce = 1;
-            else if (dna.GetGene(1) == 2) jump = false;
-            else if (dna.GetGene(1) == 3) jump = true;
+            if (dna.GetGene(3) == 0) forwardForce = 0;
+            else if (dna.GetGene(3) == 1) forwardForce = 1;
+            if (dna.GetGene(3) == 0) jump = false;
+            else if (dna.GetGene(3) == 1) jump = true;
         }
 
         //Anim
-        if(rb.velocity.y > 0)
+        if (rb.velocity.y > 0)
         {
             anim.SetBool("jumping", true);
             anim.SetBool("running", false);
             anim.SetBool("falling", false);
         }
-        else if(rb.velocity.y < 0)
+        else if (rb.velocity.y < 0)
         {
             anim.SetBool("falling", true);
             anim.SetBool("running", false);

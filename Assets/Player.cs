@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class Player : MonoBehaviour
     private bool isJumping;
     Rigidbody2D rb;
     Animator anim;
+    public GameObject PopManager;
+    public int crash;
+    public static int crashMax = 1;
+    public bool autoRun;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +42,9 @@ public class Player : MonoBehaviour
         //}
         //if(Input.GetKey(KeyCode.D))
         //    rb.AddForce(this.transform.right * 100);
+
+        if (crash > crashMax)
+            dead();
 
         //Movement
         if (Input.GetKeyDown("space") && grounded)
@@ -94,19 +102,44 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "death")
+        if (collision.gameObject.tag == "death" && gameObject.tag == "Player") //otherwise bots will trigger it
         {
-            //New iteration
+            dead();
+        }
+        if (collision.gameObject.tag == "obstacle")
+        {
+            crash++;
         }
         if (collision.gameObject.tag == "ground")
         {
             grounded = true;
         }
+        if(collision.gameObject.tag == "goal")
+        {
+            Debug.Log("PLAYER WON!!!");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ground")
+            grounded = false;
     }
 
     private void FixedUpdate()
     {
-        moveInput = Input.GetAxis("Horizontal");
+        if (!autoRun)
+            moveInput = Input.GetAxisRaw("Horizontal");
+        else
+            moveInput = 1;
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+    }
+
+    private void dead()
+    {
+        crash = 0;
+        gameObject.transform.position = PopulationManager.startPos.position;
+        PopManager.GetComponent<PopulationManager>().BreedNewPopulation();
+        //Application.LoadLevel(Application.loadedLevel);
     }
 }

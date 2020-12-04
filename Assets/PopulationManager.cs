@@ -10,6 +10,7 @@ public class PopulationManager : MonoBehaviour
     List<GameObject> population = new List<GameObject>();
     public static float elapsed = 0;
     public float trialTime = 5;
+    public bool trials;
     int generation = 1;
     public static Transform startPos;
 
@@ -55,7 +56,7 @@ public class PopulationManager : MonoBehaviour
 
     }
 
-    void BreedNewPopulation() //Fitness 
+    public void BreedNewPopulation() //Fitness 
     {
         //List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain>().timeAlive).ToList(); //Time
         List<GameObject> sortedList = population.OrderBy(o => o.GetComponent<Brain>().distanceTravelled).ToList(); //Distance
@@ -79,7 +80,7 @@ public class PopulationManager : MonoBehaviour
     private void Update()
     {
         elapsed += Time.deltaTime;
-        if (elapsed >= trialTime)
+        if (elapsed >= trialTime && trials)
         {
             BreedNewPopulation();
             elapsed = 0;
