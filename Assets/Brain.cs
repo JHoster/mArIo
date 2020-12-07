@@ -26,8 +26,6 @@ public class Brain : MonoBehaviour
     public float jumpTime;
     private bool isJumping;
     private bool once;
-    private bool jump = false;
-    private float forwardForce = 1;
 
     public LayerMask ignoreMask;
 
@@ -79,9 +77,9 @@ public class Brain : MonoBehaviour
         {
             if (!once)
             {
+                once = true;
                 PopulationManager.populationAlive--;
                 rb.velocity = new Vector2(0, rb.velocity.y);
-                once = true;
                 distanceTravelled = distanceTravelled / 2;
                 anim.SetBool("dead", true);
             }
@@ -112,6 +110,9 @@ public class Brain : MonoBehaviour
             seeObstacle = false;
             seeDeath = false;
         }
+
+        float forwardForce = 1;
+        bool jump = false;
 
         if (seeGround)
         {

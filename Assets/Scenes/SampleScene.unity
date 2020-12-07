@@ -642,6 +642,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obs (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3986663304417714771, guid: f854221c2d25bfd4793222478ac1e544,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
       propertyPath: m_RootOrder
@@ -655,7 +660,7 @@ PrefabInstance:
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
@@ -705,7 +710,7 @@ PrefabInstance:
     - target: {fileID: 3986663304417714774, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
       propertyPath: speed
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f854221c2d25bfd4793222478ac1e544, type: 3}
@@ -3057,6 +3062,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obs (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3986663304417714771, guid: f854221c2d25bfd4793222478ac1e544,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
       propertyPath: m_RootOrder
@@ -3070,7 +3080,7 @@ PrefabInstance:
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
@@ -3111,6 +3121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986663304417714774, guid: f854221c2d25bfd4793222478ac1e544,
+        type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f854221c2d25bfd4793222478ac1e544, type: 3}
@@ -3895,6 +3910,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obs (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3986663304417714771, guid: f854221c2d25bfd4793222478ac1e544,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
       propertyPath: m_RootOrder
@@ -3908,7 +3928,7 @@ PrefabInstance:
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3986663304417714772, guid: f854221c2d25bfd4793222478ac1e544,
         type: 3}
@@ -3949,6 +3969,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3986663304417714774, guid: f854221c2d25bfd4793222478ac1e544,
+        type: 3}
+      propertyPath: speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f854221c2d25bfd4793222478ac1e544, type: 3}
