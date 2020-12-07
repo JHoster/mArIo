@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    bool alive = true;
     bool grounded = true;
     public float speed;
     public float jumpForce;
@@ -139,6 +138,7 @@ public class Player : MonoBehaviour
     {
         crash = 0;
         gameObject.transform.position = PopulationManager.startPos.position;
+        PopulationManager.elapsed = 0;
         PopManager.GetComponent<PopulationManager>().BreedNewPopulation();
         //Application.LoadLevel(Application.loadedLevel);
     }

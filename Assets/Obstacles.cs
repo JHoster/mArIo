@@ -8,6 +8,7 @@ public class Obstacles : MonoBehaviour
     public float speed = 2.0f;
     private Vector3 startPos;
     public bool vertical;
+    public static bool reset;
 
     void Start()
     {

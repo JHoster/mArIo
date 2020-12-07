@@ -8,6 +8,7 @@ public class PopulationManager : MonoBehaviour
     public GameObject botPrefab;
     public int populationSize = 50;
     List<GameObject> population = new List<GameObject>();
+    public static int populationAlive;
     public static float elapsed = 0;
     public float trialTime = 5;
     public bool trials;
@@ -23,7 +24,7 @@ public class PopulationManager : MonoBehaviour
         GUI.Box(new Rect(0, 0, 140, 140), "Stats", guiStyle);
         GUI.Box(new Rect(10, 25, 200, 30), "Gen: " + generation, guiStyle);
         GUI.Box(new Rect(10, 50, 200, 30), string.Format("Time: {0:0.00}", elapsed), guiStyle);
-        GUI.Box(new Rect(10, 75, 200, 30), "Population: " + population.Count, guiStyle);
+        GUI.Box(new Rect(10, 75, 200, 30), "Bots still alive: " + populationAlive, guiStyle);
         GUI.EndGroup();
     }
 
@@ -36,6 +37,7 @@ public class PopulationManager : MonoBehaviour
             b.GetComponent<Brain>().Init();
             population.Add(b);
         }
+        populationAlive = population.Count;
     }
 
     GameObject Breed(GameObject parent1, GameObject parent2)
@@ -75,6 +77,7 @@ public class PopulationManager : MonoBehaviour
             Destroy(sortedList[i]);
         }
         generation++;
+        populationAlive = populationSize;
     }
 
     private void Update()
