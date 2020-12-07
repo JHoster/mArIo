@@ -1,14 +1,17 @@
 # mArIo
 Game with genetic algorithm bots
 
-1. UML
-
+2. DDD
 ![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)
 
 8. IDE
-Nice Visual Studio shortcuts:
-Ctrl+D Duplicate a line
-Ctrl+K, ctrl+D Format Document
+Nice Visual Studio shortcuts:  
+Ctrl+D Duplicate a line  
+Ctrl+K, Ctrl+C Comment line  
+Ctrl+K, Ctrl+U Uncomment line  
+Ctrl+K, Ctrl+D format document
+Alt + arrow-up Move line up 
+Alt + arrow-down Move line down 
 
 To do:
 1. UML at least 3 good diagrams
