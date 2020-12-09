@@ -1,7 +1,7 @@
 # mArIo
 Game with genetic algorithm bots
 1. UML  
-![Bot decision making](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/Bot_decision_making.png)
+![BotDecisionMaking](Stuff/BotDecisionMaking.png)
 2. DDD  
 ![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)
 
