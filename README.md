@@ -1,7 +1,10 @@
 # mArIo
 Game with genetic algorithm bots
 1. UML  
+Bot decision making:  
 ![BotDecisionMaking](Stuff/BotDecisionMaking.png)
+Genetic algorithm / Population manager:  
+![PopulationManager](Stuff/PopulationManager.svg)
 2. DDD  
 ![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)
 
@@ -31,16 +34,16 @@ To do:
 - functions as parameters and return values
 - use closures / anonymous functions
 
-Working with machine learning algorithm always leads to funny stories.
-Here are some of them:
+Working with machine learning algorithm always leads to funny stories.  
+Here are some of them:  
 
-Why aren't they moving?
+Why aren't they moving?  
 In the first iteration some bots moved forward and jumped, but in the following iterations more and more of them would just stand there or jump on the spot, even though the fitness-function checked which bot travelled the most distance.
 Turns out, the ones that moved forward fell in the pits and died.
 Dead bots can't give their DNA to the next population!
 So the bots that did nothing except jumping were the fittest, because at least they survived!
 
-Double Jump
+Double Jump  
 Bots did double jumps, even though I gave them the same controls as the player.
 Was wondered for a while how they are doing it.
 Turns out, the player could do it too, but I never tried!
