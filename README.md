@@ -1,12 +1,24 @@
 # mArIo
 Game with genetic algorithm bots
+
+Play the game:  
+https://thetex.itch.io/mario?secret=0Od8ESv4kBi3M2Cxzmc75uvJrA
+
 1. UML  
+![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)  
+Genetic algorithm / Population manager:  
+![PopulationManager](Stuff/PopulationManager.svg)  
 Bot decision making:  
 ![BotDecisionMaking](Stuff/BotDecisionMaking.png)
-Genetic algorithm / Population manager:  
-![PopulationManager](Stuff/PopulationManager.svg)
+
 2. DDD  
-![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)
+The strategic design is shown in the game overview: https://github.com/JHoster/mArIo/blob/main/Stuff/mArIoOverview.svg  
+Player:
+https://github.com/JHoster/mArIo/blob/main/Assets/Player.cs  
+Bots:
+https://github.com/JHoster/mArIo/blob/main/Assets/Brain.cs  
+Population Manager:
+https://github.com/JHoster/mArIo/blob/main/Assets/PopulationManager.cs
 
 8. IDE
 Nice Visual Studio shortcuts:  
@@ -45,6 +57,6 @@ So the bots that did nothing except jumping were the fittest, because at least t
 
 Double Jump  
 Bots did double jumps, even though I gave them the same controls as the player.
-Was wondered for a while how they are doing it.
+Was wondering for a while how they are doing it.
 Turns out, the player could do it too, but I never tried!
 Learned a nice trick from the bots!
