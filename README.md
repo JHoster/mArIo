@@ -22,12 +22,13 @@ https://github.com/JHoster/mArIo/blob/main/Assets/PopulationManager.cs
 
 8. IDE
 Nice Visual Studio shortcuts:  
-Ctrl+D Duplicate a line  
+Ctrl+D Duplicate line  
+Ctrl+L Cut line  
 Ctrl+K, Ctrl+C Comment line  
 Ctrl+K, Ctrl+U Uncomment line  
-Ctrl+K, Ctrl+D format document
-Alt + arrow-up Move line up 
-Alt + arrow-down Move line down 
+Ctrl+K, Ctrl+D format document  
+Alt + arrow-up Move line up  
+Alt + arrow-down Move line down  
 
 To do:
 1. UML at least 3 good diagrams
