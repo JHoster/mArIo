@@ -5,7 +5,7 @@ Play the game:
 https://thetex.itch.io/mario?secret=0Od8ESv4kBi3M2Cxzmc75uvJrA
 
 1. UML  
-![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)  
+can be seen here: https://github.com/JHoster/mArIo/tree/main/Stuff  
 Genetic algorithm / Population manager:  
 ![PopulationManager](Stuff/PopulationManager.svg)  
 Bot decision making:  
@@ -13,12 +13,28 @@ Bot decision making:
 
 2. DDD  
 The strategic design is shown in the game overview: https://github.com/JHoster/mArIo/blob/main/Stuff/mArIoOverview.svg  
+![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)  
 Player:
 https://github.com/JHoster/mArIo/blob/main/Assets/Player.cs  
 Bots:
 https://github.com/JHoster/mArIo/blob/main/Assets/Brain.cs  
 Population Manager:
-https://github.com/JHoster/mArIo/blob/main/Assets/PopulationManager.cs
+https://github.com/JHoster/mArIo/blob/main/Assets/PopulationManager.cs  
+Camera:
+https://github.com/JHoster/mArIo/blob/main/Assets/Cam.cs  
+Obstacles:
+https://github.com/JHoster/mArIo/blob/main/Assets/Obstacles.cs  
+Menu: Not updated yet
+
+3 Metrics  
+
+4 CCD  
+
+5 Build Management  
+
+6 Unit-Tests  
+
+7 Continous Delivery  
 
 8. IDE
 Nice Visual Studio shortcuts:  
@@ -29,6 +45,10 @@ Ctrl+K, Ctrl+U Uncomment line
 Ctrl+K, Ctrl+D format document  
 Alt + arrow-up Move line up  
 Alt + arrow-down Move line down  
+
+9 DSL  
+
+10 Funcitonal Programming  
 
 To do:
 1. UML at least 3 good diagrams
