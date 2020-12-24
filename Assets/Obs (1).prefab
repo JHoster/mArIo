@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3986663304414092173}
   - component: {fileID: 3986663304414092160}
   - component: {fileID: 3986663304414092175}
-  - component: {fileID: 3986663304414092174}
+  - component: {fileID: 2108286292378619031}
   m_Layer: 0
   m_Name: Obs (1)
   m_TagString: obstacle
@@ -82,7 +82,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!61 &3986663304414092174
+--- !u!61 &2108286292378619031
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.2
 --- !u!1 &3986663304417714771
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 3986663304417714792}
   - component: {fileID: 3986663304417714775}
   - component: {fileID: 3986663304417714774}
-  - component: {fileID: 3986663304417714773}
+  - component: {fileID: 2710593370013885217}
   m_Layer: 0
   m_Name: Obs (1)
   m_TagString: obstacle
@@ -207,7 +207,7 @@ MonoBehaviour:
   delta: 6
   speed: 3
   vertical: 1
---- !u!61 &3986663304417714773
+--- !u!61 &2710593370013885217
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,4 +232,4 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.2

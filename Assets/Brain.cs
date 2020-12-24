@@ -28,6 +28,7 @@ public class Brain : MonoBehaviour
     private bool once;
 
     public LayerMask ignoreMask;
+    public static bool botWon = false;
 
     public void Init()  //initialise DNA
     {
@@ -54,7 +55,8 @@ public class Brain : MonoBehaviour
         }
         if (collision.gameObject.tag == "goal")
         {
-            Debug.Log("BOT WON!!!");
+            botWon = true;
+            Menu.GameIsOver = true;
         }
     }
 
@@ -80,13 +82,13 @@ public class Brain : MonoBehaviour
                 once = true;
                 PopulationManager.populationAlive--;
                 rb.velocity = new Vector2(0, rb.velocity.y);
-                distanceTravelled = distanceTravelled / 2;
+                distanceTravelled -= 10; //= distanceTravelled / 2; //(if punishment is too high, bots won't take any risk)
                 anim.SetBool("dead", true);
             }
         }
 
         if (!alive) return;
-        timeAlive = PopulationManager.elapsed;
+        //timeAlive = PopulationManager.elapsed;
 
         seeGround = false;
         seeObstacle = false;

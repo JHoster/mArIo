@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -19,15 +19,15 @@ public class Player : MonoBehaviour
     public int crash;
     public static int crashMax = 1;
     public bool autoRun;
+    public static bool playerWon;
+    public GameObject[] obs;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Bot-similar control:
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
             if (rb.velocity.x > 0)
                 transform.rotation = Quaternion.identity;
             if (rb.velocity.x < 0)
-                transform.rotation = Quaternion.Euler(0,180,0);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             anim.SetBool("running", true);
             anim.SetBool("falling", false);
             anim.SetBool("jumping", false);
@@ -103,19 +103,20 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "death" && gameObject.tag == "Player") //otherwise bots will trigger it
         {
-            dead();
+            crash++; //dead() results in bug where new population breeds twice
         }
-        if (collision.gameObject.tag == "obstacle")
+        if (collision.gameObject.tag == "obstacle" && gameObject.tag == "Player")
         {
             crash++;
         }
-        if (collision.gameObject.tag == "ground")
+        if (collision.gameObject.tag == "ground" && gameObject.tag == "Player")
         {
             grounded = true;
         }
-        if(collision.gameObject.tag == "goal")
+        if (collision.gameObject.tag == "goal" && gameObject.tag == "Player")
         {
-            Debug.Log("PLAYER WON!!!");
+            playerWon = true;
+            Menu.GameIsOver = true;
         }
     }
 
@@ -137,9 +138,12 @@ public class Player : MonoBehaviour
     private void dead()
     {
         crash = 0;
+        foreach (GameObject obstacle in obs)
+        {
+            obstacle.GetComponent<Obstacles>().reset();
+        }
         gameObject.transform.position = PopulationManager.startPos.position;
-        PopulationManager.elapsed = 0;
+        //PopulationManager.elapsed = 0;
         PopManager.GetComponent<PopulationManager>().BreedNewPopulation();
-        //Application.LoadLevel(Application.loadedLevel);
     }
 }
