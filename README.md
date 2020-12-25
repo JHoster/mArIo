@@ -1,33 +1,42 @@
 # mArIo
 Game with genetic algorithm bots
 
-Play the game:  
-https://thetex.itch.io/mario?secret=0Od8ESv4kBi3M2Cxzmc75uvJrA
+[Play the game!](https://thetex.itch.io/mario?secret=0Od8ESv4kBi3M2Cxzmc75uvJrA)
 
 1. UML  
-can be seen here: https://github.com/JHoster/mArIo/tree/main/Stuff  
+[can be found here!](https://github.com/JHoster/mArIo/tree/main/Exercises/UML)  
+
+Activity diagram of the game:  
+![ActivityDiagramGame](Exercises/UML/NewUML/ActivityDiagramGame.png)  
+State diagram of the controls:  
+![StateDiagramControl](Exercises/UML/NewUML/StateDiagramControl.png)  
+Class diagram:  
+![ClassDiagram](Exercises/UML/NewUML/ClassDiagram.png)  
+<!---
 Genetic algorithm / Population manager:  
 ![PopulationManager](Stuff/PopulationManager.svg)  
 Bot decision making:  
 ![BotDecisionMaking](Stuff/BotDecisionMaking.png)
-
+-->
 2. DDD  
+[The strategic design:](https://github.com/JHoster/mArIo/blob/main/Exercises/DDDStrategicDesign.svg)  
+![ClassDiagram](Exercises/DDDStrategicDesign.svg)  
+
+<!--
 The strategic design is shown in the game overview: https://github.com/JHoster/mArIo/blob/main/Stuff/mArIoOverview.svg  
-![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)  
-Player:
-https://github.com/JHoster/mArIo/blob/main/Assets/Player.cs  
-Bots:
-https://github.com/JHoster/mArIo/blob/main/Assets/Brain.cs  
-Population Manager:
-https://github.com/JHoster/mArIo/blob/main/Assets/PopulationManager.cs  
-Camera:
-https://github.com/JHoster/mArIo/blob/main/Assets/Cam.cs  
-Obstacles:
-https://github.com/JHoster/mArIo/blob/main/Assets/Obstacles.cs  
-Menu:
-https://github.com/JHoster/mArIo/blob/main/Assets/Menu.cs  
+![mArIoOverview](https://raw.githubusercontent.com/JHoster/mArIo/6a911b11539cf994a8f42e53bdc15fdc10d4ac83/Stuff/mArIoOverview.svg)  -->
+Code:  
+[Player](https://github.com/JHoster/mArIo/blob/main/Assets/Player.cs)  
+[Brain of bots](https://github.com/JHoster/mArIo/blob/main/Assets/Brain.cs)  
+[Population Manager](https://github.com/JHoster/mArIo/blob/main/Assets/PopulationManager.cs)  
+[Camera](https://github.com/JHoster/mArIo/blob/main/Assets/Cam.cs)  
+[Obstacles](https://github.com/JHoster/mArIo/blob/main/Assets/Obstacles.cs)  
+[Menu](https://github.com/JHoster/mArIo/blob/main/Assets/Menu.cs)  
+Leaderboard: Not implemented (yet)  
 
 3 Metrics  
+[Metric created with Visual Studio 2015](https://github.com/JHoster/mArIo/blob/main/Exercises/VSMetric.png):
+![ClassDiagram](Exercises/VSMetric.png)  
 
 4 CCD  
 
