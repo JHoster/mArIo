@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class DNA
@@ -18,7 +17,7 @@ public class DNA
     public void SetRandom()
     {
         genes.Clear();
-        for(int i = 0; i < dnaLength; i++)
+        for (int i = 0; i < dnaLength; i++)
         {
             genes.Add(Random.Range(0, maxValues));
         }
@@ -31,9 +30,9 @@ public class DNA
 
     public void Combine(DNA d1, DNA d2) //half of DNA from both parents creates DNA of child
     {
-        for(int i = 0; i < dnaLength; i++)
+        for (int i = 0; i < dnaLength; i++)
         {
-            if(i < dnaLength / 2.0)
+            if (i < dnaLength / 2.0)
             {
                 int c = d1.genes[i];
                 genes[i] = c;

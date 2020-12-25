@@ -58,6 +58,7 @@
      <Compile Include="Assets\Brain.cs" />
      <Compile Include="Assets\Obstacles.cs" />
      <Compile Include="Assets\PopulationManager.cs" />
+     <Compile Include="Assets\Menu.cs" />
      <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\Cam.cs" />
      <Compile Include="Assets\DNA.cs" />

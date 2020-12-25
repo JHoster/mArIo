@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -9,7 +6,6 @@ public class Player : MonoBehaviour
     public float speed;
     public float jumpForce;
     private float moveInput;
-    private bool jumped;
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
@@ -30,18 +26,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //Bot-similar control:
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (grounded)
-        //    {
-        //        grounded = false;
-        //        rb.AddForce(this.transform.up * 100, ForceMode2D.Impulse);
-        //    }
-        //}
-        //if(Input.GetKey(KeyCode.D))
-        //    rb.AddForce(this.transform.right * 100);
-
+        //Check status
         if (crash > crashMax)
             dead();
 
@@ -68,7 +53,7 @@ public class Player : MonoBehaviour
             isJumping = false;
         }
 
-        //Anim
+        //Animation
         if (rb.velocity.y > 0)
         {
             anim.SetBool("jumping", true);
@@ -143,7 +128,6 @@ public class Player : MonoBehaviour
             obstacle.GetComponent<Obstacles>().reset();
         }
         gameObject.transform.position = PopulationManager.startPos.position;
-        //PopulationManager.elapsed = 0;
         PopManager.GetComponent<PopulationManager>().BreedNewPopulation();
     }
 }

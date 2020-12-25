@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
@@ -41,8 +39,8 @@ public class Menu : MonoBehaviour
         {
             playButton.SetActive(false);
             if (Player.playerWon)
-                won.text = "Player won!"; 
-            else if(Brain.botWon)
+                won.text = "Player won!";
+            else if (Brain.botWon)
                 won.text = "Bot won!";
             else
                 won.text = "";
@@ -69,7 +67,7 @@ public class Menu : MonoBehaviour
         Player.playerWon = false;
         Brain.botWon = false;
         GameIsOver = false;
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnValueChanged(float newValue)

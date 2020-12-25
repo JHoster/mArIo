@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Brain : MonoBehaviour
 {
     int DNALength = 4; //decision when seeing: nothing, ground, death, obstacle
-    public float timeAlive;
     public float distanceTravelled;
     public int crash;
     public DNA dna;
@@ -18,22 +14,18 @@ public class Brain : MonoBehaviour
     bool grounded = true;
     Rigidbody2D rb;
     Animator anim;
-
     public float speed;
     public float jumpForce;
-    private bool jumped;
     private float jumpTimeCounter;
     public float jumpTime;
     private bool isJumping;
     private bool once;
-
     public LayerMask ignoreMask;
     public static bool botWon = false;
 
     public void Init()  //initialise DNA
     {
         dna = new DNA(DNALength, 4); //Number of reactions: 0 = no Movement, 1 = moveForward, 2 = don'tJump, 3 = Jump
-        timeAlive = 0;
         alive = true;
         rb = this.GetComponent<Rigidbody2D>();
         anim = this.GetComponent<Animator>();
@@ -68,6 +60,7 @@ public class Brain : MonoBehaviour
 
     private void Update()
     {
+        //Check status
         if (crash > Player.crashMax)
             alive = false;
 
@@ -88,13 +81,12 @@ public class Brain : MonoBehaviour
         }
 
         if (!alive) return;
-        //timeAlive = PopulationManager.elapsed;
 
+        //Check surroundings
         seeGround = false;
         seeObstacle = false;
         seeDeath = false;
         RaycastHit2D hit = Physics2D.Raycast(eyes.transform.position, eyes.transform.forward, 30.0f, ~ignoreMask);
-
         Debug.DrawRay(eyes.transform.position, eyes.transform.forward * 30.0f, Color.red);
 
         if (hit.collider != null)
@@ -113,6 +105,7 @@ public class Brain : MonoBehaviour
             seeDeath = false;
         }
 
+        //Decision making based on DNA
         float forwardForce = 1;
         bool jump = false;
 
@@ -145,7 +138,7 @@ public class Brain : MonoBehaviour
             else if (dna.GetGene(3) == 3) jump = true;
         }
 
-        //Anim
+        //Animation
         if (rb.velocity.y > 0)
         {
             anim.SetBool("jumping", true);
@@ -176,12 +169,6 @@ public class Brain : MonoBehaviour
         }
 
         //Jumping
-        //if (grounded && jump)
-        //{
-        //    grounded = false;
-        //    rb.AddForce(this.transform.up * jumpForce, ForceMode2D.Impulse);
-        //}
-
         if (jump && grounded)
         {
             grounded = false;
@@ -204,7 +191,7 @@ public class Brain : MonoBehaviour
             isJumping = false;
         }
 
-        //rb.AddForce(this.transform.right * forwardForce * speed);
+        //Apply movement
         rb.velocity = new Vector2(forwardForce * speed, rb.velocity.y);
     }
 }
