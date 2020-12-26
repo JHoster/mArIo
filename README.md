@@ -37,9 +37,11 @@ Code:
 
 ## 3 Metrics  
 [Metrics measured with Visual Studio 2019](https://docs.microsoft.com/en-us/visualstudio/code-quality/code-metrics-values?view=vs-2019):
+![ClassDiagram](Exercises/VSMetric.png)  
 ### Maintainability Index:
 Value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability.  
-Cyclomatic Complexity: Measures the structural complexity of the code, by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable.  
+### Cyclomatic Complexity:
+Measures the structural complexity of the code, by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable.  
 ### Depth of Inheritacne:
 Indicates the number of different classes that inherit from one another, all the way back to the base class. The higher this number, the deeper the inheritance and the higher the potential for base class modifications to result in a breaking change. For Depth of Inheritance, a low value is good and a high value is bad.  
 ### Class Coupling:
@@ -48,7 +50,6 @@ Measures the coupling to unique classes through parameters, local variables, ret
 Indicates the exact number of source code lines that are present in your source file, including blank lines.  
 ### Lines of executable code:
 Indicates the approximate number of executable code lines or operations. This is a count of number of operations in executable code.  
-![ClassDiagram](Exercises/VSMetric.png)  
 
 ## 4 CCD  
 
