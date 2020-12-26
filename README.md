@@ -3,14 +3,14 @@ Game with genetic algorithm bots
 
 [Play the game!](https://thetex.itch.io/mario?secret=0Od8ESv4kBi3M2Cxzmc75uvJrA)
 
-1. UML  
-[can be found here!](https://github.com/JHoster/mArIo/tree/main/Exercises/UML)  
+## 1. UML  
+[can be found here](https://github.com/JHoster/mArIo/tree/main/Exercises/UML)  
 
-Activity diagram of the game:  
+Activity diagram of the game, created with [UMLetino](http://www.umletino.com/):  
 ![ActivityDiagramGame](Exercises/UML/NewUML/ActivityDiagramGame.png)  
-State diagram of the controls:  
+State diagram of the controls, created with [UMLetino](http://www.umletino.com/):    
 ![StateDiagramControl](Exercises/UML/NewUML/StateDiagramControl.png)  
-Class diagram:  
+Class diagram, created with Visual Studio 2015:  
 ![ClassDiagram](Exercises/UML/NewUML/ClassDiagram.png)  
 <!---
 Genetic algorithm / Population manager:  
@@ -18,8 +18,8 @@ Genetic algorithm / Population manager:
 Bot decision making:  
 ![BotDecisionMaking](Stuff/BotDecisionMaking.png)
 -->
-2. DDD  
-[The strategic design:](https://github.com/JHoster/mArIo/blob/main/Exercises/DDDStrategicDesign.svg)  
+## 2. DDD  
+[The strategic design, ](https://github.com/JHoster/mArIo/blob/main/Exercises/DDDStrategicDesign.svg) created with [draw.io](https://app.diagrams.net/)  
 ![ClassDiagram](Exercises/DDDStrategicDesign.svg)  
 
 <!--
@@ -32,21 +32,21 @@ Code:
 [Camera](https://github.com/JHoster/mArIo/blob/main/Assets/Cam.cs)  
 [Obstacles](https://github.com/JHoster/mArIo/blob/main/Assets/Obstacles.cs)  
 [Menu](https://github.com/JHoster/mArIo/blob/main/Assets/Menu.cs)  
-Leaderboard: Not implemented (yet)  
+[Leaderboard]() - Not implemented (yet)  
 
-3 Metrics  
-[Metric created with Visual Studio 2015](https://github.com/JHoster/mArIo/blob/main/Exercises/VSMetric.png):
+## 3 Metrics  
+[Metric created with Visual Studio 2019](https://github.com/JHoster/mArIo/blob/main/Exercises/VSMetric.png):
 ![ClassDiagram](Exercises/VSMetric.png)  
 
-4 CCD  
+## 4 CCD  
 
-5 Build Management  
+## 5 Build Management  
 
-6 Unit-Tests  
+## 6 Unit-Tests  
 
-7 Continous Delivery  
+## 7 Continous Delivery  
 
-8. IDE
+## 8. IDE
 Nice Visual Studio shortcuts:  
 Ctrl+D Duplicate line  
 Ctrl+L Cut line  
@@ -56,9 +56,9 @@ Ctrl+K, Ctrl+D format document
 Alt + arrow-up Move line up  
 Alt + arrow-down Move line down  
 
-9 DSL  
+## 9 DSL  
 
-10 Funcitonal Programming  
+## 10 Funcitonal Programming  
 
 To do:
 1. UML at least 3 good diagrams
@@ -77,17 +77,18 @@ To do:
 - functions as parameters and return values
 - use closures / anonymous functions
 
+## Fun
 Working with machine learning algorithm always leads to funny stories.  
 Here are some of them:  
 
-Why aren't they moving?  
+### Why aren't they moving?  
 In the first iteration some bots moved forward and jumped, but in the following iterations more and more of them would just stand there or jump on the spot, even though the fitness-function checked which bot travelled the most distance.
 Turns out, the ones that moved forward fell in the pits and died.
 Dead bots can't give their DNA to the next population!
 So the bots that did nothing except jumping were the fittest, because at least they survived!
 
-Double Jump  
+### Double Jump  
 Bots did double jumps, even though I gave them the same controls as the player.
 Was wondering for a while how they are doing it.
 Turns out, the player could do it too, but I never tried!
-Learned a nice trick from the bots!
+Bots are great for playtesting!
