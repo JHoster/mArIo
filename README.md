@@ -36,20 +36,23 @@ Code:
 [Leaderboard]() - Not implemented (yet)  
 
 ## 3 Metrics  
-[Metrics measured with Visual Studio 2019](https://docs.microsoft.com/en-us/visualstudio/code-quality/code-metrics-values?view=vs-2019):
-![ClassDiagram](Exercises/VSMetric.png)  
-### Maintainability Index:
+### [Metrics measured with Visual Studio 2019](https://docs.microsoft.com/en-us/visualstudio/code-quality/code-metrics-values?view=vs-2019)
+![VSMetric](Exercises/VSMetric.png)  
+#### Maintainability Index:
 Value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability.  
-### Cyclomatic Complexity:
+#### Cyclomatic Complexity:
 Measures the structural complexity of the code, by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable.  
-### Depth of Inheritacne:
+#### Depth of Inheritacne:
 Indicates the number of different classes that inherit from one another, all the way back to the base class. The higher this number, the deeper the inheritance and the higher the potential for base class modifications to result in a breaking change. For Depth of Inheritance, a low value is good and a high value is bad.  
-### Class Coupling:
+#### Class Coupling:
 Measures the coupling to unique classes through parameters, local variables, return types, method calls, generic or template instantiations, base classes, interface implementations, fields defined on external types, and attribute decoration. Good software design dictates that types and methods should have high cohesion and low coupling.  
-### Lines of source code:
+#### Lines of source code:
 Indicates the exact number of source code lines that are present in your source file, including blank lines.  
-### Lines of executable code:
+#### Lines of executable code:
 Indicates the approximate number of executable code lines or operations. This is a count of number of operations in executable code.  
+
+### Metrics measured with SonarQube  
+![SQMetric](Exercises/SQMetric.png)  
 
 ## 4 CCD  
 
@@ -64,6 +67,9 @@ YAGNI: All implemented functions are needed.
 ![CCDCheatSheet](Exercises/CCDCheatSheet.png)  
 
 ## 5 Build Management  
+I used gradle to create a [simple java application](https://github.com/JHoster/mArIo/tree/main/Gradle).  
+[Generate Player](https://github.com/JHoster/mArIo/blob/main/Gradle/app/src/main/java/mArIoBuild/app/Player.java)  
+[Test Player](https://github.com/JHoster/mArIo/blob/main/Gradle/app/src/test/java/mArIoBuild/app/PlayerTest.java)  
 
 ## 6 Unit-Tests  
 
@@ -83,7 +89,7 @@ Alt + arrow-down Move line down
 
 ## 10 Funcitonal Programming  
 
-## To do:  
+## To do  
 1. UML at least 3 good diagrams
 2. DDD If your domain is too small, invent other domains around and document these domains (as if you have 5 Mio € from Edlich-Investment!) Develop a clear strategic design with mappings/relationships
 3. Metrics at least two. Sonarcube would be great
