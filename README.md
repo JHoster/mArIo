@@ -20,6 +20,7 @@ Bot decision making:
 -->
 ## 2. DDD  
 [The strategic design, ](https://github.com/JHoster/mArIo/blob/main/Exercises/DDDStrategicDesign.svg) created with [draw.io](https://app.diagrams.net/)  
+  
 ![ClassDiagram](Exercises/DDDStrategicDesign.svg)  
 
 <!--
@@ -35,10 +36,32 @@ Code:
 [Leaderboard]() - Not implemented (yet)  
 
 ## 3 Metrics  
-[Metric created with Visual Studio 2019](https://github.com/JHoster/mArIo/blob/main/Exercises/VSMetric.png):
+[Metrics measured with Visual Studio 2019](https://docs.microsoft.com/en-us/visualstudio/code-quality/code-metrics-values?view=vs-2019):
 ![ClassDiagram](Exercises/VSMetric.png)  
+### Maintainability Index:
+Value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability.  
+### Cyclomatic Complexity:
+Measures the structural complexity of the code, by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable.  
+### Depth of Inheritacne:
+Indicates the number of different classes that inherit from one another, all the way back to the base class. The higher this number, the deeper the inheritance and the higher the potential for base class modifications to result in a breaking change. For Depth of Inheritance, a low value is good and a high value is bad.  
+### Class Coupling:
+Measures the coupling to unique classes through parameters, local variables, return types, method calls, generic or template instantiations, base classes, interface implementations, fields defined on external types, and attribute decoration. Good software design dictates that types and methods should have high cohesion and low coupling.  
+### Lines of source code:
+Indicates the exact number of source code lines that are present in your source file, including blank lines.  
+### Lines of executable code:
+Indicates the approximate number of executable code lines or operations. This is a count of number of operations in executable code.  
 
 ## 4 CCD  
+
+In the [Player](https://github.com/JHoster/mArIo/blob/main/Assets/Player.cs)-script the following rules were apllied:  
+KISS: Code is simple and understandable.  
+Principle of least astonishment: Press P to pause the game, A & D to move and space to jump are common game conventions.  
+Functions are relatively small and side effect free, have descriptive names and explanatory variables.  
+Comments are used only if necessary to structure and clarify the code.  
+YAGNI: All implemented functions are needed.  
+
+[CCD Cheat Sheet](https://github.com/JHoster/mArIo/blob/main/Exercises/CCDCheatSheet.pdf)  
+![CCDCheatSheet](Exercises/CCDCheatSheet.png)  
 
 ## 5 Build Management  
 
@@ -60,7 +83,7 @@ Alt + arrow-down Move line down
 
 ## 10 Funcitonal Programming  
 
-To do:
+## To do:  
 1. UML at least 3 good diagrams
 2. DDD If your domain is too small, invent other domains around and document these domains (as if you have 5 Mio € from Edlich-Investment!) Develop a clear strategic design with mappings/relationships
 3. Metrics at least two. Sonarcube would be great
