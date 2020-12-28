@@ -3,6 +3,18 @@ Game with genetic algorithm bots
 
 [Play the game!](https://thetex.itch.io/mario?secret=0Od8ESv4kBi3M2Cxzmc75uvJrA)
 
+Table of contents  
+  * [1. UML](#1-uml)
+  * [2. DDD](#2-ddd)
+  * [3 Metrics](#3-metrics)
+  * [4 CCD](#4-ccd)
+  * [5 Build Management](#5-build-management)
+  * [6 Unit-Tests](#6-unit-tests)
+  * [7 Continous Delivery](#7-continous-delivery)
+  * [8. IDE](#8-ide)
+  * [9 DSL](#9-dsl)
+  * [10 Funcitonal Programming](#10-funcitonal-programming)
+
 ## 1. UML  
 [can be found here](https://github.com/JHoster/mArIo/tree/main/Exercises/UML)  
 
@@ -72,8 +84,8 @@ I used gradle to create a [simple java application](https://github.com/JHoster/m
 [Test Player](https://github.com/JHoster/mArIo/blob/main/Gradle/app/src/test/java/mArIoBuild/app/PlayerTest.java)  
 
 ## 6 Unit-Tests  
-I used the Unity Test Runner and created some nice [Unit-Tests](https://github.com/JHoster/mArIo/blob/main/Assets/UnitTest/Tests/TestSuite.cs)  
-Results:  
+I used the Unity Test Runner and created some nice  
+[Unit-Tests](https://github.com/JHoster/mArIo/blob/main/Assets/UnitTest/Tests/TestSuite.cs)  
 ![UnitTests](Exercises/UnitTests.png)  
 
 ## 7 Continous Delivery  
