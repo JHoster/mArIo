@@ -45,7 +45,7 @@ Code:
 [Camera](https://github.com/JHoster/mArIo/blob/main/Assets/Cam.cs)  
 [Obstacles](https://github.com/JHoster/mArIo/blob/main/Assets/Obstacles.cs)  
 [Menu](https://github.com/JHoster/mArIo/blob/main/Assets/Menu.cs)  
-[Leaderboard]() - Not implemented (yet)  
+Leaderboard - Not implemented (yet)  
 
 ## 3 Metrics  
 ### [Metrics measured with Visual Studio 2019](https://docs.microsoft.com/en-us/visualstudio/code-quality/code-metrics-values?view=vs-2019)
@@ -89,6 +89,10 @@ I used the Unity Test Runner and created some nice
 ![UnitTests](Exercises/UnitTests.png)  
 
 ## 7 Continous Delivery  
+I used [GitHub Actions](https://github.com/JHoster/mArIo/actions) to  
+[acquire an activation file of Unity](https://github.com/JHoster/mArIo/blob/main/.github/workflows/activation.yml) which I needed to  
+[build my game](https://github.com/JHoster/mArIo/blob/main/.github/workflows/main.yml)  
+In addition to automaticly build the game with every push to the repo, I can use the [butler](https://itch.io/docs/butler/) of itch.io (where people can download or play the game online), to upload the new build in order to achieve continuous deployment!  
 
 ## 8. IDE
 Nice Visual Studio shortcuts:  
@@ -101,6 +105,10 @@ Alt + arrow-up Move line up
 Alt + arrow-down Move line down  
 
 ## 9 DSL  
+I created a simple DSL with eclipse:  
+[Item model](https://github.com/JHoster/mArIo/blob/b430376e78b63eb05dcfdcc745e33eb5c6e596c0/mArIoDSL.mydsl/src/mArIoDSL/MyDsl.xtext)  
+[Item test](https://github.com/JHoster/mArIo/blob/b430376e78b63eb05dcfdcc745e33eb5c6e596c0/testItem.mydsl)  
+I don't use items in this game, but I could use this DSL to create Items with an unique ID, a name, an optional description and a given weight.  
 
 ## 10 Funcitonal Programming  
 
