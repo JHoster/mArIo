@@ -1,0 +1,5 @@
+Item P1 "Health potion" 1
+Item P2 "Stamina potion" 3
+Item P3 "Mana potion" 2
+Item K1 "Key" "A key that opens a door." 1
+Item K2 "Old key" "An old key to open an old door." 1
