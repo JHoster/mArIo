@@ -1,0 +1,13 @@
+grammar mArIoDSL.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.MyDsl.mArIoDSL"
+
+Model:
+	(item+=Item)*;
+	
+Item:
+	'Item'
+	ItemID=ID
+	ItemName=STRING
+	(description=STRING)?
+	ItemWeight=INT;
