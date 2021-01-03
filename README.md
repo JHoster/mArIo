@@ -3,7 +3,7 @@ Game with genetic algorithm bots
 
 [Play the game!](https://thetex.itch.io/mario?secret=0Od8ESv4kBi3M2Cxzmc75uvJrA)
 
-Table of contents  
+### Table of contents  
   * [1. UML](#1-uml)
   * [2. DDD](#2-ddd)
   * [3 Metrics](#3-metrics)
@@ -106,8 +106,8 @@ Alt + arrow-down Move line down
 
 ## 9 DSL  
 I created a simple DSL with eclipse:  
-[Item model](https://github.com/JHoster/mArIo/blob/b430376e78b63eb05dcfdcc745e33eb5c6e596c0/mArIoDSL.mydsl/src/mArIoDSL/MyDsl.xtext)  
-[Item test](https://github.com/JHoster/mArIo/blob/b430376e78b63eb05dcfdcc745e33eb5c6e596c0/testItem.mydsl)  
+[Item model](https://github.com/JHoster/mArIo/blob/main/DSL/mArIoDSL.mydsl/src/mArIoDSL/MyDsl.xtext)  
+[Item test](https://github.com/JHoster/mArIo/blob/main/testItem.mydsl)  
 I don't use items in this game, but I could use this DSL to create Items with an unique ID, a name, an optional description and a given weight.  
 
 ## 10 Funcitonal Programming  
