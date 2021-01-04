@@ -111,6 +111,9 @@ I created a simple DSL with eclipse:
 I don't use items in this game, but I could use this DSL to create Items with an unique ID, a name, an optional description and a given weight.  
 
 ## 10 Funcitonal Programming  
+I created a mental arithmetic game using clojure:  
+[Code](https://github.com/JHoster/mArIo/blob/main/mArIoClojure.clj)  
+[Try it out yourself!](https://repl.it/@JHoster/mArIoClojure)
 
 ## To do  
 1. UML at least 3 good diagrams
