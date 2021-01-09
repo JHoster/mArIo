@@ -86,9 +86,9 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "death" && gameObject.tag == "Player") //otherwise bots will trigger it
+        if (collision.gameObject.tag == "death" && gameObject.tag == "Player")
         {
-            crash++; //dead() results in bug where new population breeds twice
+            crash++;
         }
         if (collision.gameObject.tag == "obstacle" && gameObject.tag == "Player")
         {
@@ -122,6 +122,7 @@ public class Player : MonoBehaviour
 
     private void dead()
     {
+        //Reset obstacles, player and bots
         crash = 0;
         foreach (GameObject obstacle in obs)
         {
