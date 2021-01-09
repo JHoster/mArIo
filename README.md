@@ -10,10 +10,10 @@ Game with genetic algorithm bots
   * [4 CCD](#4-ccd)
   * [5 Build Management](#5-build-management)
   * [6 Unit-Tests](#6-unit-tests)
-  * [7 Continous Delivery](#7-continous-delivery)
+  * [7 Continuous Delivery](#7-continuous-delivery)
   * [8. IDE](#8-ide)
   * [9 DSL](#9-dsl)
-  * [10 Funcitonal Programming](#10-funcitonal-programming)
+  * [10 Functional Programming](#10-functional-programming)
 
 ## 1. UML  
 [can be found here](https://github.com/JHoster/mArIo/tree/main/Exercises/UML)  
@@ -54,7 +54,7 @@ Leaderboard - Not implemented (yet)
 Value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability.  
 #### Cyclomatic Complexity:
 Measures the structural complexity of the code, by calculating the number of different code paths in the flow of the program. A program that has complex control flow requires more tests to achieve good code coverage and is less maintainable.  
-#### Depth of Inheritacne:
+#### Depth of Inheritance:
 Indicates the number of different classes that inherit from one another, all the way back to the base class. The higher this number, the deeper the inheritance and the higher the potential for base class modifications to result in a breaking change. For Depth of Inheritance, a low value is good and a high value is bad.  
 #### Class Coupling:
 Measures the coupling to unique classes through parameters, local variables, return types, method calls, generic or template instantiations, base classes, interface implementations, fields defined on external types, and attribute decoration. Good software design dictates that types and methods should have high cohesion and low coupling.  
@@ -68,7 +68,7 @@ Indicates the approximate number of executable code lines or operations. This is
 
 ## 4 CCD  
 
-In the [Player](https://github.com/JHoster/mArIo/blob/main/Assets/Player.cs)-script the following rules were apllied:  
+In the [Player](https://github.com/JHoster/mArIo/blob/main/Assets/Player.cs)-script the following rules were applied:  
 KISS: Code is simple and understandable.  
 Principle of least astonishment: Press P to pause the game, A & D to move and space to jump are common game conventions.  
 Functions are relatively small and side effect free, have descriptive names and explanatory variables.  
@@ -88,7 +88,7 @@ I used the Unity Test Runner and created some nice
 [Unit-Tests](https://github.com/JHoster/mArIo/blob/main/Assets/UnitTest/Tests/TestSuite.cs)  
 ![UnitTests](Exercises/UnitTests.png)  
 
-## 7 Continous Delivery  
+## 7 Continuous Delivery  
 I used [GitHub Actions](https://github.com/JHoster/mArIo/actions) to  
 [acquire an activation file of Unity](https://github.com/JHoster/mArIo/blob/main/.github/workflows/activation.yml) which I needed to  
 [build my game](https://github.com/JHoster/mArIo/blob/main/.github/workflows/main.yml)  
@@ -108,9 +108,9 @@ Alt + arrow-down Move line down
 I created a simple DSL with eclipse:  
 [Item model](https://github.com/JHoster/mArIo/blob/main/DSL/mArIoDSL.mydsl/src/mArIoDSL/MyDsl.xtext)  
 [Item test](https://github.com/JHoster/mArIo/blob/main/testItem.mydsl)  
-I don't use items in this game, but I could use this DSL to create Items with an unique ID, a name, an optional description and a given weight.  
+I don't use items in this game, but I could use this DSL to create Items with a unique ID, a name, an optional description and a given weight.  
 
-## 10 Funcitonal Programming  
+## 10 Functional Programming  
 I created a mental arithmetic game using clojure:  
 [Code](https://github.com/JHoster/mArIo/blob/main/mArIoClojure.clj)  
 [Try it out yourself!](https://repl.it/@JHoster/mArIoClojure)
