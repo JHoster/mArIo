@@ -4,9 +4,11 @@
   [f a b]
   (println "What is the result of" a f b "?")
   ;;user input:
-  (let [result (read-line)]
-    ;;result:
-    (println (= (str((load-string f) a b)) result))
+  (let [userResult (read-line)]
+    ;;compare userResult with solution:
+    (println "Your answer is" (= (str((load-string f) a b)) userResult))
+    ;;print solution:
+    (println "Solution:" (str((load-string f) a b)))
     ;;returns closure:
     (fn [](load-string f) a b))
 )
@@ -14,5 +16,5 @@
 (def operations ["+" "-" "*" "/"])
 
 (do
-  (println "solution:" (task (rand-nth operations) (rand-int 100) (rand-int 100)))
+  (task (rand-nth operations) (rand-int 100) (rand-int 100))
 )
