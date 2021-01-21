@@ -83,6 +83,11 @@ I used gradle to create a [simple java application](https://github.com/JHoster/m
 [Generate Player](https://github.com/JHoster/mArIo/blob/main/Gradle/app/src/main/java/mArIoBuild/app/Player.java)  
 [Test Player](https://github.com/JHoster/mArIo/blob/main/Gradle/app/src/test/java/mArIoBuild/app/PlayerTest.java)  
 
+I also followed this [tutorial](https://youtu.be/mrhhOqx4uzA) to create a [Maven project](https://github.com/JHoster/mArIo/tree/main/Maven/my-app)  
+I created a [class](https://github.com/JHoster/mArIo/blob/main/Maven/my-app/src/main/java/com/mycompany/app/MyClass.java) that holds a key by multiplicating its id with a secret value  
+and a [lock](https://github.com/JHoster/mArIo/blob/main/Maven/my-app/src/main/java/com/mycompany/app/Lock.java) that checks if the entered value is the same as the keyValue.  
+These two classes get tested by [ClassTest](https://github.com/JHoster/mArIo/blob/main/Maven/my-app/src/test/java/com/mycompany/app/MyClassTest.java) and [LockTest](https://github.com/JHoster/mArIo/blob/main/Maven/my-app/src/test/java/com/mycompany/app/LockTest.java)  
+
 ## 6 Unit-Tests  
 I used the Unity Test Runner and created some nice  
 [Unit-Tests](https://github.com/JHoster/mArIo/blob/main/Assets/UnitTest/Tests/TestSuite.cs)  
