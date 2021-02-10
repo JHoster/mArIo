@@ -1,4 +1,5 @@
 # mArIo
+![coverGit](https://github.com/JHoster/mArIo/blob/main/Assets/coverGit.png)  
 Game with genetic algorithm bots
 
 [Play the game!](https://thetex.itch.io/mario?secret=0Od8ESv4kBi3M2Cxzmc75uvJrA)
